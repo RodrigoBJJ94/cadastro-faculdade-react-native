@@ -1,16 +1,18 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet, StatusBar } from "react-native";
 import { RadioGroup } from "react-native-radio-buttons-group";
 import DateTimePicker from "react-native-modal-datetime-picker";
 
 const radioButtonsData = [{
   id: '1',
   label: 'Masculino',
-  value: 'option1'
+  color: "#93c47e",
+  size: 25,
 }, {
   id: '2',
   label: 'Feminino',
-  value: 'option2'
+  color: "#93c47e",
+  size: 25,
 }];
 
 export default function App() {
@@ -49,25 +51,26 @@ export default function App() {
 
   return (
     <View style={Styles.app}>
+      <StatusBar backgroundColor="#93c47e" />
       <View style={Styles.viewTitle}>
         <Text style={Styles.title}>Cadastro</Text>
       </View>
       <View style={Styles.viewMain}>
-        <Text style={Styles.captions}>Nome</Text>
+        <Text style={Styles.captions}>Nome:</Text>
         <TextInput onChangeText={text => setName(text)} style={Styles.inputs} />
-        <Text style={Styles.captions}>Sobrenome</Text>
+        <Text style={Styles.captions}>Sobrenome:</Text>
         <TextInput onChangeText={text => setLastName(text)} style={Styles.inputs} />
-        <Text style={Styles.captions}>Rua</Text>
+        <Text style={Styles.captions}>Rua:</Text>
         <TextInput onChangeText={text => setStreet(text)} style={Styles.inputs} />
-        <Text style={Styles.captions}>Número</Text>
+        <Text style={Styles.captions}>Número:</Text>
         <TextInput onChangeText={text => setNumber(text)} style={Styles.inputs} />
-        <Text style={Styles.captions}>Bairro</Text>
+        <Text style={Styles.captions}>Bairro:</Text>
         <TextInput onChangeText={text => setDistrict(text)} style={Styles.inputs} />
-        <Text style={Styles.captions}>Cidade</Text>
+        <Text style={Styles.captions}>Cidade:</Text>
         <TextInput onChangeText={text => setCity(text)} style={Styles.inputs} />
       </View>
       <View style={Styles.viewRadioButtons}>
-        <RadioGroup radioButtons={radioButtons} onPress={onPressRadioButton} style={Styles.radioButtons} />
+        <RadioGroup radioButtons={radioButtons} onPress={onPressRadioButton} layout="row" />
       </View>
       <View style={Styles.viewDate}>
         <TouchableOpacity onPress={showDate} style={Styles.buttonDate}>
@@ -86,37 +89,52 @@ export default function App() {
 
 const Styles = StyleSheet.create({
   app: {
-
+    flex: 1,
+    backgroundColor: "#ffffff",
   },
   viewTitle: {
-
+    alignItems: "center",
+    marginTop: 20,
+    marginBottom: 20,
   },
   title: {
-
+    fontSize: 30,
+    fontWeight: "bold",
+    color: "#000000",
   },
   viewMain: {
-
+    paddingLeft: 10,
+    paddingRight: 10,
   },
   captions: {
-
+    fontSize: 18,
+    color: "#000000",
+    marginBottom: 6,
   },
   inputs: {
-
+    backgroundColor: "#93c47e",
+    fontSize: 18,
+    paddingLeft: 10,
+    marginBottom: 6,
   },
   viewRadioButtons: {
-
-  },
-  radioButtons: {
-
+    alignItems: "center",
+    marginTop: 10,
   },
   viewDate: {
-
+    backgroundColor: "blue",
+    marginLeft: 50,
+    marginRight: 50,
   },
   buttonDate: {
-
+    height: 40,
+    justifyContent: "center",
+    borderRadius: 15,
   },
   date: {
-
+    color: "#ffffff",
+    fontSize: 18,
+    alignSelf: "center",
   },
   viewFinish: {
 
