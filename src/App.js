@@ -6,12 +6,14 @@ import DateTimePicker from "react-native-modal-datetime-picker";
 const radioButtonsData = [{
   id: '1',
   label: 'Masculino',
-  color: "#93c47e",
+  labelStyle: { fontSize: 20, color: "#000000" },
+  color: "#157555",
   size: 25,
 }, {
   id: '2',
   label: 'Feminino',
-  color: "#93c47e",
+  labelStyle: { fontSize: 20, color: "#000000" },
+  color: "#157555",
   size: 25,
 }];
 
@@ -51,7 +53,7 @@ export default function App() {
 
   return (
     <View style={Styles.app}>
-      <StatusBar backgroundColor="#93c47e" />
+      <StatusBar backgroundColor="#20083d" />
       <View style={Styles.viewTitle}>
         <Text style={Styles.title}>Cadastro</Text>
       </View>
@@ -80,7 +82,7 @@ export default function App() {
       </View>
       <View style={Styles.viewFinish}>
         <TouchableOpacity onPress={() => finish()} style={Styles.buttonFinish}>
-          <Text style={Styles.viewFinish}>Concluir Cadastro</Text>
+          <Text style={Styles.finish}>Concluir Cadastro</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -112,24 +114,26 @@ const Styles = StyleSheet.create({
     marginBottom: 6,
   },
   inputs: {
-    backgroundColor: "#93c47e",
+    backgroundColor: "#157555",
     fontSize: 18,
     paddingLeft: 10,
     marginBottom: 6,
+    borderRadius: 5,
   },
   viewRadioButtons: {
     alignItems: "center",
     marginTop: 10,
   },
   viewDate: {
-    backgroundColor: "blue",
-    marginLeft: 50,
-    marginRight: 50,
+    backgroundColor: "#157555",
+    marginLeft: 80,
+    marginRight: 80,
+    borderRadius: 5,
+    marginTop: 10,
   },
   buttonDate: {
     height: 40,
     justifyContent: "center",
-    borderRadius: 15,
   },
   date: {
     color: "#ffffff",
@@ -137,13 +141,19 @@ const Styles = StyleSheet.create({
     alignSelf: "center",
   },
   viewFinish: {
-
+    backgroundColor: "#20083d",
+    marginTop: 50,
+    marginLeft: 10,
+    marginRight: 10,
+    borderRadius: 5,
   },
   buttonFinish: {
-
+    height: 50,
+    justifyContent: "center",
+    alignItems: "center",
   },
   finish: {
-
+    color: "#ffffff",
+    fontSize: 22,
   }
 });
-
